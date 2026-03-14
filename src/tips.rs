@@ -261,6 +261,40 @@ fn build_article_content() -> ArticleContent {
                 s.footer = "IMPORTANCE: ✅".to_string();
                 s.footer_text_color = "text-green-800".to_string();
             });
+        a.section(
+            |s| {
+                s.bg_color = "bg-blue-50".to_string();
+                s.border_color = "border-blue-100".to_string();
+                s.h2 = "8. if-let and while-let ".to_string();
+                s.h2_color = "text-blue-900".to_string();
+                s.p = "Rust syntax sugar".to_string();
+                s.item("Before (Verbose Match):",
+                       "\
+                            let some_number = Some(7);\
+                            match some_number {\
+                                Some(i) => println!(i),\
+                                _ => (),\
+                            }\
+                       "
+                );
+                s.item("if-let (Sugar):",
+                       "\
+                       if let Some(i) = some_number {\
+                            println!(i);\
+                        }\
+                       "
+                );
+                s.item("while-let:",
+                       "\
+                        let mut stack = vec![1, 2, 3];\
+                        while let Some(top) = stack.pop() {\
+                            println!(top);\
+                        }\
+                       "
+                );
+                s.footer = "IMPORTANCE: Rust does not allow dangling reference at compile time".to_string();
+                s.footer_text_color = "text-blue-800".to_string();
+            });
     });
     my_article
 }
