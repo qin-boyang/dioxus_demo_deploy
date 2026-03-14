@@ -6,6 +6,8 @@ mod codeblock;
 use codeblock::CodeBlock;
 mod tips;
 use tips::Tips;
+mod hashmap;
+use hashmap::Hashmap;
 
 mod header;
 mod footer;
@@ -28,6 +30,8 @@ enum Route {
     CodeBlock {},
     #[route("/tips")]
     Tips {},
+    #[route("/hashmap")]
+    Hashmap {},
 }
 
 fn main() {
@@ -56,6 +60,7 @@ pub fn Home() -> Element {
                 Link { to: Route::Compares {}, "👋 Compare with Other Frameworks" }
                 Link { to: Route::CodeBlock {}, "📝 Code Kotlin Style DSL" }
                 Link { to: Route::Tips {}, "💡 Tips for Java Developer"}
+                Link { to: Route::Hashmap {}, "⭐ Code Java Style HashMap" }
             }
         }
     }
